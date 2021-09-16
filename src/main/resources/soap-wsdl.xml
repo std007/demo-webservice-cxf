@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.demo.test.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://service.demo.test.com/" name="receiverService" targetNamespace="http://service.demo.test.com">
+  <wsdl:import location="http://localhost:6689/soap/receiveData?wsdl=IDataReceiverService.wsdl" namespace="http://service.demo.test.com/">
+    </wsdl:import>
+  <wsdl:binding name="receiverServiceSoapBinding" type="ns1:IDataReceiverService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getReceiveMsg">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getReceiveMsg">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getReceiveMsgResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="receiverService">
+    <wsdl:port binding="tns:receiverServiceSoapBinding" name="DataReceiverServiceImplPort">
+      <soap:address location="http://localhost:6689/soap/receiveData"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

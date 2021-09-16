@@ -1,0 +1,9 @@
+server:
+  port: 6689
+spring:
+  application:
+    name: cxfDemo
+#  profiles:
+#    active: dev
+cxf:
+  path: /soap #默认services
